@@ -17,12 +17,12 @@ function About() {
         </div>
 
         <div className="about-image-wrapper">
-          <img
-            src="/rakibul.png"
-            alt="Rakibul Islam"
-            className="about-image"
-          />
-        </div>
+  <img
+    src={`${import.meta.env.BASE_URL}rakibul.png`}
+    alt="Rakibul Islam"
+    className="about-image"
+  />
+</div>
       </div>
     </section>
   );
