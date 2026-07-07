@@ -40,11 +40,10 @@ a {
 }
 
 /* Navbar */
-
 .navbar {
   position: fixed;
   top: 0;
-  right: 0;
+  left: 0;
   width: 100%;
   height: 72px;
   padding: 0 var(--side-padding);
@@ -52,7 +51,7 @@ a {
   align-items: center;
   justify-content: flex-end;
   background: transparent;
-  z-index: 1000;
+  z-index: 99999;
   transition: transform 0.35s ease;
 }
 
@@ -66,6 +65,7 @@ a {
 
 .nav-links {
   display: flex;
+  align-items: center;
   gap: 34px;
 }
 
@@ -73,7 +73,8 @@ a {
   font-size: 1.1rem;
   font-weight: 500;
   color: #777;
-  transition: color 0.25s ease, opacity 0.25s ease;
+  text-decoration: none;
+  transition: color 0.25s ease;
 }
 
 .navbar-light .nav-links a:hover {
@@ -86,6 +87,84 @@ a {
 
 .navbar-dark .nav-links a:hover {
   color: #fff;
+}
+
+.hamburger {
+  display: none;
+}
+
+/* Mobile navbar */
+@media (max-width: 768px) {
+  .navbar {
+    height: 68px;
+    padding: 0 24px;
+    background: transparent;
+  }
+
+  .hamburger {
+    display: flex;
+    width: 34px;
+    height: 24px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #777;
+    z-index: 100001;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: currentColor;
+    border-radius: 999px;
+  }
+
+  .navbar-dark .hamburger {
+    color: #fff;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 25vw;
+    min-width: 160px;
+    height: 100vh;
+    padding: 90px 28px 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    border-radius: 0;
+    background: rgba(255, 255, 255, 0.97);
+    z-index: 100000;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateX(100%);
+    transition: opacity 0.25s ease, transform 0.35s ease, visibility 0.25s ease;
+  }
+
+  .navbar-dark .nav-links {
+    background: rgba(12, 12, 12, 0.96);
+    
+  }
+
+  .navbar-menu-open .nav-links {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(0);
+  }
+
+  .nav-links a {
+    font-size: 1.35rem;
+  }
 }
 
 /* Common */
@@ -273,6 +352,14 @@ a {
 
 /* About */
 
+.education-info {
+  margin-top: 24px;
+}
+
+.education-info p {
+  margin: 8px 0;
+  font-size: 1rem;
+}
 .about {
   color: #000;
 }
@@ -645,13 +732,10 @@ a {
   }
 
   .navbar {
-    padding: 0 var(--mobile-padding);
-  }
+  padding: 0 var(--mobile-padding);
+}
 
-  .nav-links {
-    display: none;
-  }
-
+  
   .section {
     padding: 110px var(--mobile-padding);
   }

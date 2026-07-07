@@ -11,9 +11,9 @@ function Footer() {
         <div className="footer-column">
           <a href="#projects">Projects</a>
          <a
-  href="/Rakibul_Islam_CV.pdf"
-  download="Rakibul_Islam_CV.pdf"
-  className="footer-link"
+  href={`${import.meta.env.BASE_URL}Rakibul_Islam_CV.pdf`}
+  target="_blank"
+  rel="noopener noreferrer"
 >
   Download CV
 </a>
