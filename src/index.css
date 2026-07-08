@@ -267,7 +267,17 @@ a {
   background: #000;
   color: #fff;
 }
+@media (max-width: 768px) {
+  .contact-button-area {
+    display: none;
+  }
 
+  .contact-form-area {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+  }
+}
 /* Contact Modal */
 
 .contact-modal {
