@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { FiArrowUpRight } from "react-icons/fi";
 
 const projects = {
   app: [
@@ -33,21 +34,20 @@ const projects = {
       github: "https://github.com/Rakibul-rahi/CoyToyBD",
     },
     {
-  title: "CareCritique",
-  description:
-    "A group project healthcare review platform where I worked on both frontend and backend features.",
-  tags: ["Frontend", "Backend", "Group Project"],
-  github: "https://github.com/srijon57/CareCritique",
-},
-{
-  title: "GUNNERS",
-  description:
-    "A group project website where I contributed to frontend development and UI implementation.",
-  tags: ["Frontend", "Group Project"],
-  github: "https://github.com/kazi-kamruddin/GUNNERS",
-},
+      title: "CareCritique",
+      description:
+        "A group project healthcare review platform where I worked on both frontend and backend features.",
+      tags: ["Frontend", "Backend", "Group Project"],
+      github: "https://github.com/srijon57/CareCritique",
+    },
+    {
+      title: "GUNNERS",
+      description:
+        "A group project website where I contributed to frontend development and UI implementation.",
+      tags: ["Frontend", "Group Project"],
+      github: "https://github.com/kazi-kamruddin/GUNNERS",
+    },
   ],
-
 };
 
 function Projects() {
@@ -67,6 +67,7 @@ function Projects() {
             onClick={() => setActiveCategory("app")}
           >
             App
+            <span className="tab-count">{projects.app.length.toString().padStart(2, "0")}</span>
           </button>
 
           <button
@@ -74,29 +75,43 @@ function Projects() {
             onClick={() => setActiveCategory("website")}
           >
             Website
+            <span className="tab-count">{projects.website.length.toString().padStart(2, "0")}</span>
           </button>
         </div>
 
-        <div className="project-grid">
-          {projects[activeCategory].map((project) => (
-            <a
-              href={project.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="project-card"
-              key={project.title}
-            >
-              <h3>{project.title}</h3>
-              <p>{project.description}</p>
+        <div className="project-list">
+  {projects[activeCategory].map((project, index) => (
+    <a
+      href={project.github}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="project-row"
+      key={project.title}
+    >
+      <span className="project-index">
+        {(index + 1).toString().padStart(2, "0")}
+      </span>
 
-              <div className="project-tags">
-                {project.tags.map((tag) => (
-                  <span key={tag}>{tag}</span>
-                ))}
-              </div>
-            </a>
+      <div className="project-content">
+        <div className="project-row-top">
+          <h3>{project.title}</h3>
+          <FiArrowUpRight className="project-arrow" />
+        </div>
+
+        <p>{project.description}</p>
+
+        <div className="project-tags">
+          {project.tags.map((tag, i) => (
+            <span key={tag}>
+              {tag}
+              {i < project.tags.length - 1 && <i className="tag-dot" />}
+            </span>
           ))}
         </div>
+      </div>
+    </a>
+  ))}
+</div>
       </div>
     </section>
   );
