@@ -462,13 +462,18 @@ a {
   display: flex;
   align-items: center;
   font-size: 16px;
+  pointer-events: none;
 }
 
-.skills-grid span:hover {
+.skills-grid > span:hover {
   transform: translateY(-3px);
   background-color: #fff;
   color: #000;
   border-color: #fff;
+}
+
+.skills-grid > span:hover .skill-icon {
+  color: #000;
 }
 
 /* Projects */
@@ -814,6 +819,26 @@ a {
     flex-wrap: wrap;
     gap: 24px;
     padding-top: 0;
+  }
+}
+
+/* Small laptop / tablet landscape (was falling through the gap
+   between the 900px tablet breakpoint and full desktop, causing
+   the hero/footer name to overflow and the about photo to crowd
+   the text) */
+@media (min-width: 901px) and (max-width: 1600px) {
+  :root {
+    --name-size: clamp(55px, 10vw, 175px);
+    --name-letter-spacing: -6px;
+    --name-line-height: 0.92;
+  }
+
+  .about-layout {
+    gap: 36px;
+  }
+
+  .about-image-wrapper {
+    width: clamp(180px, 26vw, 280px);
   }
 }
 

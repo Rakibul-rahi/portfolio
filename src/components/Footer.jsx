@@ -1,5 +1,3 @@
-
-
 function Footer() {
   return (
     <footer className="footer">
@@ -41,7 +39,9 @@ function Footer() {
 
       <div className="footer-name">
         <p>Junior Full-Stack Developer</p>
-        <h2>Rakibul Islam</h2>
+        <h2>
+          Rakibul<span className="name-break"> Islam</span>
+        </h2>
         
       </div>
     </footer>
