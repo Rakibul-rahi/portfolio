@@ -9,7 +9,7 @@ function Footer() {
         <div className="footer-column">
           <a href="#projects">Projects</a>
          <a
-  href={`${import.meta.env.BASE_URL}Rakibul_Islam_CV.pdf`}
+  href={`${import.meta.env.BASE_URL}Rakibul_Islam_CV.pdf?v=2`}
   target="_blank"
   rel="noopener noreferrer"
 >
